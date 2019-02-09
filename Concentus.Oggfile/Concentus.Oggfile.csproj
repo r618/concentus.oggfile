@@ -1,9 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFrameworks>netstandard1.0;net4.5</TargetFrameworks>
+        <TargetFrameworks>net35;net4.5</TargetFrameworks>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard1.0|AnyCPU'">
+      <DefineConstants>TRACE;NET35</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard1.0|AnyCPU'">
+      <DefineConstants>TRACE;NET35</DefineConstants>
+    </PropertyGroup>
     <ItemGroup>
-      <PackageReference Include="Concentus" Version="1.1.7" />
+      <Reference Include="Concentus">
+        <HintPath>..\..\Concentus\CSharp\Concentus\bin\Release\net35\Concentus.dll</HintPath>
+      </Reference>
     </ItemGroup>
 </Project>
